@@ -1,0 +1,1 @@
+﻿delete from Package where PackageName='Goa'
