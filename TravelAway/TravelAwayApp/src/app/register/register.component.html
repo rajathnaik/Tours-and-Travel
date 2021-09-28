@@ -1,0 +1,118 @@
+
+<app-common-layout></app-common-layout>
+
+
+<div class="container-fluid">
+  <div class="img-bg">
+    <!--<div class="col-md-3">-->
+    <img src="assets/i3.jpg" />
+    <div class="text">
+      <h2 style="font-family:'MS PGothic'; font-size:80px"><b>Register</b></h2>
+      <h6 style="text-align:left;font-size:medium">All fields are mandatory!</h6>
+      <form [formGroup]="registerForm" (ngSubmit)="SubmitForm(registerForm)" style="border:1px ;text-align:center;">
+
+        <div class="text-form" style="border:ridge black; padding:20px; font-weight:bold;text-align:left;background-color:burlywood;">
+
+          <div class="form-group">
+
+            <!--<label >First Name</label>-->
+            <span class="label">First Name</span>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter the first Name" style="border:2px ridge darkred">
+            <p *ngIf="registerForm.controls.firstName.errors?.required &&  registerForm.controls.firstName.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.firstName.errors?.pattern &&  registerForm.controls.firstName.touched" class="alert alert-danger"> First Name should contain alphabates with no spaces!</p>
+          </div>
+          <div class="form-group">
+            <!--<label>Last Name</label>-->
+            <span class="label">Last Name</span>
+
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter the last Name" style="border:2px ridge darkred">
+            <p *ngIf="registerForm.controls.lastName.errors?.required &&  registerForm.controls.lastName.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.lastName.errors?.pattern &&  registerForm.controls.lastName.touched" class="alert alert-danger">Last Name should contain alphabates with no spaces!</p>
+          </div>
+          <div class="form-group">
+            <!--<label>EmailID</label>-->
+            <span class="label">EmailID</span>
+
+
+            <input type="email" formControlName="emailId" class="form-control" placeholder="Abc@pqrs.xyz" style="border:2px ridge darkred" ngModel required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+
+            <!--<input type="text" class="form-control" formControlName="emailId" placeholder="Abc@pqrs.xyz" style="border:2px ridge darkred">-->
+            <p *ngIf="registerForm.controls.emailId.errors?.required &&  registerForm.controls.emailId.touched" class="alert alert-danger">This field is required!</p>
+            <!--<p *ngIf="registerForm.controls.emailId.errors?.minlength || registerForm.controls.emailId.errors?.maxlength  &&  registerForm.controls.emailId.touched" class="alert alert-danger">Email is should be of proper length</p>-->
+            <p *ngIf="registerForm.controls.emailId.errors?.pattern &&  registerForm.controls.emailId.touched" class="alert alert-danger">Email Id should be of proper format [Abc@pqrs.xyz]!</p>
+          </div>
+          <div class="form-group">
+            <!--<label>Password</label>-->
+            <span class="label">Password</span>
+
+            <input type="password" class="form-control" formControlName="password" placeholder="Should be of minimum 8 characters" name="password" minlength="8" maxlength="16" style="border:2px ridge darkred">
+            <p *ngIf="registerForm.controls.password.errors?.required &&  registerForm.controls.password.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.password.errors?.minlength || registerForm.controls.password.errors?.maxlength  &&  registerForm.controls.password.touched" class="alert alert-danger">The Password should be of proper length!</p>
+
+          </div>
+          <div class="form-group">
+            <!--<label>Confirm Password</label>-->
+            <span class="label">Confirm Password</span>
+
+            <input type="password" class="form-control" formControlName="cpassword" placeholder="Re-enter your password" style="border:2px ridge darkred">
+            <p *ngIf="registerForm.controls.cpassword.errors?.required &&  registerForm.controls.cpassword.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.cpassword.valid && registerForm.controls.cpassword.value != registerForm.controls.password.value" class="alert alert-danger">
+              Confirm password should be same as password
+            </p>
+          </div>
+
+          <div class="form-group">
+
+            <!--<label for="sel1">Gender</label>-->
+            <span class="label">Gender </span>
+
+
+            <select class="form-control" id="gender" formControlName="gender" ngModel style="border:2px ridge darkred">
+              <option value="" selected disabled>---Select Gender---</option>
+              <option value="M" id="M">Male</option>
+              <option value="F" id="F">Female</option>
+
+            </select>
+
+          </div>
+          <p *ngIf="registerForm.controls.gender.invalid && registerForm.controls.gender.touched" class="alert alert-danger">
+            Gender required.
+          </p>
+          <div class="form-group">
+            <!--<label>Contact Number</label>-->
+            <span class="label">Contact Number</span>
+            <input type="number" class="form-control" formControlName="contactNumber" placeholder="Enter 10-digit contact number" style="border:2px ridge darkred">
+            <p *ngIf="registerForm.controls.contactNumber.errors?.required &&  registerForm.controls.contactNumber.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.contactNumber.errors?.pattern || registerForm.controls.contactNumber.errors?.minlength || registerForm.controls.contactNumber.errors?.maxlength &&  registerForm.controls.contactNumber.touched" class="alert alert-danger">Please enter 10 digit contact number, It should not start with 0!</p>
+            <p *ngIf="registerForm.controls.contactNumber.errors?.pattern &&  registerForm.controls.contactNumber.dirty" class="alert alert-danger">Contact Number should not start with 0</p>
+
+          </div>
+          <div class="form-group">
+            <!--<label>Date of BirthDate of Birth</label>-->
+            <span class="label">Date of Birth</span>
+
+            <input type="date" class="form-control" formControlName="dateOfbirth" style="border:2px ridge darkred">
+            <p *ngIf="registerForm.controls.dateOfbirth.errors?.required &&  registerForm.controls.dateOfbirth.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.dateOfbirth.errors?.dateError &&  registerForm.controls.dateOfbirth.dirty" class="alert alert-danger">
+              {{registerForm.controls.dateOfbirth.errors?.dateError.message}}
+            </p>
+          </div>
+          <div class="form-group">
+            <!--<label>Address</label>-->
+            <span class="label">Address</span>
+
+            <textarea type="text" class="form-control" formControlName="address" placeholder="Enter the address" style="border:2px ridge darkred"></textarea>
+            <p *ngIf="registerForm.controls.address.errors?.required &&  registerForm.controls.address.touched" class="alert alert-danger">This field is required!</p>
+          </div>
+          <button type="submit" class="btn btn-primary" style="color:white;margin:auto;display:block;">Register</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <br />
+  <div>
+    {{msg}}
+  </div>
+</div>
+

@@ -1,0 +1,157 @@
+<!--<app-customer-layout></app-customer-layout>
+<div class="myContent">
+  <div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="Update(registerForm)" style="background-color:beige;">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <h2>Edit Profile</h2>
+          <h6 style="text-align:center;font-size:smaller">&nbsp;&nbsp;&nbsp;*All Fields Are Mandatory</h6>
+
+
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter the first Name">
+            <p *ngIf="registerForm.controls.firstName.errors?.required &&  registerForm.controls.firstName.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.firstName.errors?.pattern &&  registerForm.controls.firstName.touched" class="alert alert-danger"> First Name should contain alphabates with no spaces!</p>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter the last Name">
+            <p *ngIf="registerForm.controls.lastName.errors?.required &&  registerForm.controls.lastName.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.lastName.errors?.pattern &&  registerForm.controls.lastName.touched" class="alert alert-danger">Last Name should contain alphabates with no spaces!</p>
+          </div>
+
+
+          <div class="form-group">
+            <label>Gender</label>
+            <input type="radio" formControlName="gender" name="gender" value="M" id="M" />
+            <label for="M">Male</label>
+            <input type="radio" formControlName="gender" name="gender" value="F" id="F" />
+            <label for="F">Female</label>
+          </div>
+          <div *ngIf="registerForm.controls.gender.invalid && registerForm.controls.gender.touched" class="alert alert-danger">
+            Gender required.
+          </div>
+          <div class="form-group">
+            <label>Contact Number</label>
+            <input type="number" class="form-control" formControlName="contactNumber" placeholder="Enter 10-digit contact number">
+            <p *ngIf="registerForm.controls.contactNumber.errors?.required &&  registerForm.controls.contactNumber.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.contactNumber.errors?.pattern || registerForm.controls.contactNumber.errors?.minlength || registerForm.controls.contactNumber.errors?.maxlength &&  registerForm.controls.contactNumber.touched" class="alert alert-danger">Please enter 10 digit contact number, It should not start with 0!</p>
+            <p *ngIf="registerForm.controls.contactNumber.errors?.pattern &&  registerForm.controls.contactNumber.dirty" class="alert alert-danger">Contact Number should not start with 0</p>
+
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" class="form-control" formControlName="dateOfbirth">
+            <p *ngIf="registerForm.controls.dateOfbirth.errors?.required &&  registerForm.controls.dateOfbirth.touched" class="alert alert-danger">This field is required!</p>
+            <p *ngIf="registerForm.controls.dateOfbirth.errors?.dateError &&  registerForm.controls.dateOfbirth.dirty" class="alert alert-danger">
+              {{registerForm.controls.dateOfbirth.errors?.dateError.message}}
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <textarea type="text" class="form-control" formControlName="address" placeholder="Enter the address"></textarea>
+            <p *ngIf="registerForm.controls.address.errors?.required &&  registerForm.controls.address.touched" class="alert alert-danger">This field is required!</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-md" [disabled]="!registerForm.valid">Update</button>
+
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div *ngIf="registerForm" style="color:red;text-align:center;">
+        <br />
+        {{msg}}
+      </div>
+    </form>
+  </div>
+</div>-->
+
+
+
+<app-customer-layout></app-customer-layout>
+<div class="myContent">
+  <div class="container-fluid">
+    <div class="img-bg">
+      <img src="assets/p.png" />
+      <form [formGroup]="registerForm" (ngSubmit)="Update(registerForm)">
+        <div class="text-form">
+          <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
+            <h1>Edit Profile</h1>
+            <h6 style="text-align:right;font-size:smaller">&nbsp;&nbsp;&nbsp;*All Fields Are Mandatory</h6>
+
+
+            <div class="form-group" style="text-align:left">
+              <label style="font-family: 'Helvetica'; font-size: 18px ">First Name</label>
+              <input type="text" class="form-control" formControlName="firstName" placeholder="Enter the first Name">
+              <p *ngIf="registerForm.controls.firstName.errors?.required &&  registerForm.controls.firstName.touched" class="alert alert-danger">This field is required!</p>
+              <p *ngIf="registerForm.controls.firstName.errors?.pattern &&  registerForm.controls.firstName.touched" class="alert alert-danger"> First Name should contain alphabates with no spaces!</p>
+            </div>
+
+            <div class="form-group" style="text-align:left">
+              <label style="font-family: 'Helvetica'; font-size: 18px ">Last Name</label>
+              <input type="text" class="form-control" formControlName="lastName" placeholder="Enter the last Name">
+              <p *ngIf="registerForm.controls.lastName.errors?.required &&  registerForm.controls.lastName.touched" class="alert alert-danger">This field is required!</p>
+              <p *ngIf="registerForm.controls.lastName.errors?.pattern &&  registerForm.controls.lastName.touched" class="alert alert-danger">Last Name should contain alphabates with no spaces!</p>
+            </div>
+
+
+            <div class="form-group" style="text-align:left">
+              <label style="font-family: 'Helvetica'; font-size: 18px ">Gender</label>
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              <input type="radio" formControlName="gender" name="gender" value="M" id="M" />
+              <label for="M" style="font-family: 'Helvetica'; font-size: 18px ">Male</label>
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              <input type="radio" formControlName="gender" name="gender" value="F" id="F" />
+              <label for="F" style="font-family: 'Helvetica'; font-size: 18px ">Female</label>
+            </div>
+            <div *ngIf="registerForm.controls.gender.invalid && registerForm.controls.gender.touched" class="alert alert-danger">
+              Gender required.
+            </div>
+            <div class="form-group" style="text-align:left">
+              <label style="font-family: 'Helvetica'; font-size: 18px ">Contact Number</label>
+              <input type="number" class="form-control" formControlName="contactNumber" placeholder="Enter 10-digit contact number">
+              <p *ngIf="registerForm.controls.contactNumber.errors?.required &&  registerForm.controls.contactNumber.touched" class="alert alert-danger">This field is required!</p>
+              <p *ngIf="registerForm.controls.contactNumber.errors?.pattern || registerForm.controls.contactNumber.errors?.minlength || registerForm.controls.contactNumber.errors?.maxlength &&  registerForm.controls.contactNumber.touched" class="alert alert-danger">Please enter 10 digit contact number, It should not start with 0!</p>
+              <p *ngIf="registerForm.controls.contactNumber.errors?.pattern &&  registerForm.controls.contactNumber.dirty" class="alert alert-danger">Contact Number should not start with 0</p>
+
+            </div>
+            <div class="form-group" style="text-align:left">
+              <label style="font-family: 'Helvetica'; font-size: 18px ">Date of Birth</label>
+              <input type="date" class="form-control" formControlName="dateOfbirth">
+              <p *ngIf="registerForm.controls.dateOfbirth.errors?.required &&  registerForm.controls.dateOfbirth.touched" class="alert alert-danger">This field is required!</p>
+              <p *ngIf="registerForm.controls.dateOfbirth.errors?.dateError &&  registerForm.controls.dateOfbirth.dirty" class="alert alert-danger">
+                {{registerForm.controls.dateOfbirth.errors?.dateError.message}}
+              </p>
+            </div>
+            <div class="form-group" style="text-align:left">
+              <label style="font-family: 'Helvetica'; font-size: 18px ">Address</label>
+              <textarea type="text" class="form-control" formControlName="address" placeholder="Enter the address"></textarea>
+              <p *ngIf="registerForm.controls.address.errors?.required &&  registerForm.controls.address.touched" class="alert alert-danger">This field is required!</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-md" [disabled]="!registerForm.valid">Update</button>
+
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div *ngIf="registerForm" style="color:red;text-align:center;">
+          <br />
+          {{msg}}
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
